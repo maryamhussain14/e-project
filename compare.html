@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pascal Imitation Jewelry</title>
+    <link rel="icon" type="image/png" href="https://png.pngtree.com/png-vector/20220624/ourmid/pngtree-jewelry-icon-logo-vector-woman-shop-set-vector-png-image_47304130.jpg">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -20,7 +21,7 @@ header {
 }
 
 /* Container for Header content */
-.container {
+.container2 {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -216,26 +217,80 @@ body {
             padding: 2em;
             text-align: center;
         }
-        table {
-            width: 80%;
-            margin: 0 auto;
-            border-collapse: collapse;
-        }
-        table, th, td {
-            border: 1px solid #ccc;
-        }
-        th, td {
-            padding: 1em;
-            text-align: center;
-        }
+
+
+
+        td img{
+        width: 300px;
+        height: 300px;
+    }
+
+
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    width: 100%;
+    height: 100vh;
+    background-color: #ebdebe;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.testimonial{
+    width: 60%;
+    height: 350px;
+    background-color: crimson;
+}
+.user-text{
+    position: relative;
+    top: 10%;
+    font-size: 25px;
+    color: whitesmoke;
+    padding: 30px;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: none;
+    animation: moveup .8s ease-in   forwards ;
+}
+.user-text.active-text{
+    display: block;
+}
+.user-text h3{
+    color: rgb(157, 147, 147);
+    text-transform: uppercase;
+}
+@keyframes moveup {
+    0%{
+                margin-top: 25px;
+    }
+    100%{
+                margin-top: 0px;
+    }
+}
+/* ----------------------------- picture */
+.testimonial-pic{
+
+    margin: 20px;
+    cursor: pointer;
+}
+.user-pic{
+    border-radius: 120px;
+}
+.user-pic.active-pic{
+    border:8px solid crimson;
+}
     </style>
 </head>
 <body>
     <header>
-        <div class="container">
+        <div class="container2">
             <span class="brand">Pascal Imitation Jewelry</span>
             <nav class="navbar">
-                <a href="home.html">Home</a>
+                <a href="index.html">Home</a>
                 <a href="products.html">Products</a>
                 <a href="comparison.html">Compare</a>
                 <a href="gallery.html">Gallery</a>
@@ -257,46 +312,178 @@ body {
         });
     </script>
 
-    <section class="comparison">
-        <h2>Compare Products</h2>
-        <table>
-            <thead>
+<div class="container">
+    <div class="row">
+        <div class="col-md-9 mx-auto">
+            <table class="table">
                 <tr>
-                    <th>Feature</th>
-                    <th>Original</th>
-                    <th>Semi-Precious</th>
-                    <th>Artificial</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Material</td>
-                    <td>Gold, Diamonds</td>
-                    <td>Semi-Precious Stones</td>
-                    <td>Plastic, Glass</td>
+                    <td colspan="3" class="text-center text-info"><h1>Product Compare</h1></td>
                 </tr>
                 <tr>
-                    <td>Price</td>
-                    <td>High</td>
-                    <td>Moderate</td>
-                    <td>Low</td>
+                    <td>Select Product</td>
+                    <td><select name="" id="select1" class="form-control" onchange="item1(this.value)"></select></td>
+                    <td><select name="" id="select2" class="form-control" onchange="item2(this.value)"></select></td>
                 </tr>
                 <tr>
-                    <td>Durability</td>
-                    <td>Very High</td>
-                    <td>Moderate</td>
-                    <td>Low</td>
+                    <td>Product Image</td>
+                    <td><img src="images/No_Image.png" alt="" id="image1"></td>
+                    <td><img src="images/No_Image.png" alt="" id="image2"></td>
                 </tr>
-            </tbody>
-        </table>
-    </section>
+                <tr>
+                    <td>Product Price</td>
+                    <td id="price1"></td>
+                    <td id="price2"></td>
+                </tr>
+                <tr>
+                    <td>Product Description</td>
+                    <td id="des1"></td>
+                    <td id="des2"></td>
+                </tr>
+                <tr>
+                    <td>Product Brand</td>
+                    <td id="brand1"></td>
+                    <td id="brand2"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+</div>
+
+<script>
+    var products =[{
+    "id":0,
+    "title":" GOLD ",
+    "price":"$5,600",
+    "description":"Laurence Graff Signature Diamond and Rose Gold Band",
+    "brand":"Graff",
+    "image":"https://i.pinimg.com/564x/68/aa/05/68aa055e87e18bb1df6153c88cf58760.jpg",
+},{
+    "id":1,
+    "title":"GOLD",
+    "price":"$6,800",
+    "description":"Tiffany Knot Ring in Yellow Gold.",
+    "brand":"TIFFANY & CO. ",
+    "image":"https://www.amnmicrocovering.com/image/cache/catalog/Rings/rng185-buy-modern-white-stone-wedding-rose-gold-ring-design-for-women-1-425x500.jpg.webp",
+},{
+    "id":2,
+    "title":"ARTIFICIAL",
+    "price":"$2,000",
+    "description":"Cxidized Silver Earring.",
+    "brand":"PANDORA",
+    "image":"https://allurebymht.com/cdn/shop/files/watermarked-26_fdee97de-01fd-4ab4-8dd2-6d6af899d710_800x.png?v=1732360858",
+},{
+    "id":3,
+    "title":"SEMI PRECIOUS",
+    "price":"2,000",
+    "description":"Foil Earrings with Semi Precious Stones.",
+    "brand":"HARRY WINSTON",
+    "image":"https://i.etsystatic.com/30571316/r/il/13d38e/4068718698/il_794xN.4068718698_tvxs.jpg",
+},{
+    "id":4,
+    "title":"ARTIFICIAL",
+    "price":":$6,00",
+    "description":"Artificial Titanium Sainless Steel Earring Purple & White Color for Women.",
+    "brand":"FOREVER 21",
+    "image":"https://dastoorjewels.com/cdn/shop/products/OER97_1.jpg?v=1691664700&width=1080",
+},{
+    "id":5,
+    "title":"SEMI PRECIOUS",
+    "price":"$6,000",
+    "description":"Blue Imperial Jasper Stone Rectangle Beaded Drop Dangle Earring.",
+    "brand":"DAVID YUMAN",
+    "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlGf3I-uPVn3aNng6VPusm5_90zVmPe80fIg&s",
+},{
+    "id":6,
+    "title":"GOLD",
+    "price":"$6,500",
+    "description":"Gold Heart Drop EarRings Stud earrings for women Double Heart Statement Dangle EarringS.",
+    "brand":"TIFFANY & CO",
+    "image":"https://m.media-amazon.com/images/I/611unCfNYrL._AC_UY300_.jpg",
+},{
+    "id":7,
+    "title":"GOLD",
+    "price":":$8,000",
+    "description":"Multi-shape Diamond Small Stud Earrings Multi-shape Diamond Small Stud Earrings.",
+    "brand":"GRAFF",
+    "image":"https://www.graff.com/dw/image/v2/BFNT_PRD/on/demandware.static/-/Sites-master-catalog/default/dw347cc9f3/sfcc-graff-staging/R/G/E/5/7/RGE579_RGE579_GE37776_model_4.jpg?sw=1000&sh=1000",
+},{
+    "id":8,
+    "title":"SEMI PRECIOUS",
+    "price":"$3,000<",
+    "description":"Peared Shape Emearld & Coloured Gemstone Engagement Ring.",
+    "brand":"HARRY WINSTON",
+    "image":"https://i.etsystatic.com/27127409/r/il/98c10d/5023392117/il_794xN.5023392117_sqgb.jpg",
+},{
+    "id":9,
+    "title":"ARTIFICIAL",
+    "price":"$,600",
+    "description":"Dream small contraire Stone Ring , set with mother of pearl and pavé diamond.",
+    "brand":"PANDORA",
+    "image":"https://edengardenjewelry.com/cdn/shop/products/web-14_36620a77-b9c8-434f-8578-6975783ba206_300x.jpg?v=1682068096",
+},{
+    "id":10,
+    "title":"SEMI PRECIOUS",
+    "price":"$3,000",
+    "description":"Unique Gemstone Ring with Rutile Peridot..",
+    "brand":"DVID YUMAN",
+    "image":"https://edengardenjewelry.com/cdn/shop/products/P1144586_300x.jpg?v=1643032761",
+}]
+
+
+
+for(var i=0;i<products.length;i++)
+{
+
+document.getElementById("select1").innerHTML += `<option value="${i}">${products[i].title}</option>`
+document.getElementById("select2").innerHTML += `<option value="${i}">${products[i].title}</option>`
+}
+function item1(a)
+{
+  var select2 = document.getElementById("select2").value;
+    if(a != select2)
+    {
+     document.getElementById('image1').src= products[a].image
+     document.getElementById('price1').innerHTML = products[a].price
+     document.getElementById('des1').innerHTML = products[a].description
+     document.getElementById('brand1').innerHTML = products[a].brand
+    }
+    else{
+        document.getElementById('select1').selectedIndex = 0
+        document.getElementById('image1').src= products[0].image
+        document.getElementById('price1').innerHTML = "N/A"
+        document.getElementById('des1').innerHTML = "N/A"
+        document.getElementById('brand1').innerHTML =  "N/A"
+    }
+}
+function item2(b)
+{
+  var select1 = document.getElementById("select1").value;
+    if(b != select1)
+    {
+        document.getElementById('image2').src= products[b].image
+        document.getElementById('price2').innerHTML = products[b].price
+        document.getElementById('des2').innerHTML = products[b].description
+     document.getElementById('brand2').innerHTML = products[b].brand
+    }
+    else{
+        document.getElementById('select2').selectedIndex = 0
+        document.getElementById('image2').src= products[0].image
+        document.getElementById('price2').innerHTML = "N/A"
+        document.getElementById('des2').innerHTML = "N/A"
+        document.getElementById('brand2').innerHTML =  "N/A"
+    }
+}
+</script>
+
 
 
     <footer class="footer">
         <div class="footer-column">
             <h3>Site Links</h3>
             <ul>
-                <li><a href="home.html">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="products.html">Products</a></li>
                 <li><a href="comparison.html">Compare</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
@@ -355,3 +542,4 @@ body {
     </script>
 </body>
 </html>
+
